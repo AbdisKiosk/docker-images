@@ -1,4 +1,4 @@
-FROM --platform=$TARGETOS/$TARGETARCH amazoncorretto:21
+FROM --platform=$TARGETOS/$TARGETARCH amazoncorretto:21-al2023
 
 LABEL author="Your Name" maintainer="oscar@stougaard.com"
 LABEL org.opencontainers.image.source="https://github.com/AbdisKiosk/docker-images"
