@@ -5,9 +5,9 @@ LABEL org.opencontainers.image.source="https://github.com/AbdisKiosk/docker-imag
 LABEL org.opencontainers.image.licenses=MIT
 
 RUN yum update -y \
-    && yum install -y lsof curl ca-certificates openssl git tar sqlite shadow-utils fontconfig freetype tzdata iproute libstdc++ \
+    && dnf install -y lsof curl ca-certificates openssl git tar sqlite shadow-utils fontconfig freetype tzdata iproute libstdc++ \
     && useradd -d /home/container -m container \
-    && yum clean all
+    && dnf clean all
 
 USER container
 ENV USER=container HOME=/home/container
