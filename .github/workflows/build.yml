@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [21, 25]
     permissions:
       contents: read
       packages: write
@@ -31,5 +34,6 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           platforms: linux/amd64
+          build-args: JAVA_MAJOR=${{ matrix.java }}
           push: true
-          tags: ghcr.io/abdiskiosk/docker-images:java_21
+          tags: ghcr.io/abdiskiosk/docker-images:java_${{ matrix.java }}
